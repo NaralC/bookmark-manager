@@ -18,11 +18,11 @@ type AddOptions = z.infer<typeof addOptionsSchema>;
 
 const bookmarks: Bookmark[] = [];
 
-export async function list(): Promise<Bookmark[]> {
+export async function list() {
   return bookmarks;
 }
 
-export async function add(options: AddOptions): Promise<Bookmark> {
+export async function add(options: AddOptions) {
   const params = addOptionsSchema.parse(options);
 
   const bookmark: Bookmark = {

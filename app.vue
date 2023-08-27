@@ -19,7 +19,6 @@ const addBookmark = async () => {
     },
   });
 
-  // Optimistic update
   bookmarks.value.push(bookmark);
   newBookmark.value = '';
 };

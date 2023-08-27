@@ -1,6 +1,9 @@
-import * as Bookmarks from "@/server/src/bookmark"
+import * as Bookmarks from "@/server/src/bookmark";
+import { getDatabase } from "~/server/src/db";
 
 export default defineEventHandler(async (event) => {
-    const body = await readBody(event);
-    return Bookmarks.add(body);
-})
+  const { databaseFilePath } = useRuntimeConfig();
+  const db = await getDatabase(databaseFilePath);
+  const body = await readBody(event);
+  return Bookmarks.add(db, body);
+});
